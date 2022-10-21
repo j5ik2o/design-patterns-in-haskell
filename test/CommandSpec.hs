@@ -1,10 +1,8 @@
 module CommandSpec where
 
-import Test.Hspec
-
 import Command
-
 import Control.Monad
+import Test.Hspec
 
 spec :: Spec
 spec =
@@ -17,6 +15,3 @@ spec =
       let echo = EchoCommand "4"
       forM_ [mc4, echo] execute
       1 `shouldBe` 1
-
-
-
