@@ -26,6 +26,7 @@ source-repository head
 library
   exposed-modules:
       Adaptor
+      Command
       Lib
   other-modules:
       Paths_design_patterns_in_haskell
@@ -53,6 +54,7 @@ test-suite design-patterns-in-haskell-test
   main-is: Spec.hs
   other-modules:
       AdaptorSpec
+      CommandSpec
       Paths_design_patterns_in_haskell
   hs-source-dirs:
       test

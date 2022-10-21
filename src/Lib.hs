@@ -1,3 +1,4 @@
+{-# LANGUAGE GADTs #-}
 module Lib
     ( someFunc
     ) where
