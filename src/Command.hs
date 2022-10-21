@@ -1,23 +1,16 @@
 module Command where
 
-class Command a where
-  execute :: a -> IO ()
+data Command = EchoCommand String | MacroCommand [Command]
 
-newtype MacroCommand a = MacroCommand [a]
+execute :: Command -> IO ()
+execute (EchoCommand message) = putStrLn message
+execute (MacroCommand commands) = mapM_ execute commands
 
-instance Command a => Command (MacroCommand a) where
-  execute (MacroCommand commands) = mapM_ execute commands
-
-append :: Command a => MacroCommand a -> a -> MacroCommand a
+append :: Command -> Command -> Command
 append (MacroCommand commands) command = MacroCommand (commands ++ [command])
 
-undo :: Command a => MacroCommand a -> MacroCommand a
+undo :: Command -> Command
 undo (MacroCommand commands) = MacroCommand (init commands)
 
-clear :: MacroCommand a -> MacroCommand a
+clear :: Command -> Command
 clear _ = MacroCommand []
-
-newtype EchoCommand = EchoCommand String
-
-instance Command EchoCommand where
-  execute (EchoCommand message) = putStrLn message
