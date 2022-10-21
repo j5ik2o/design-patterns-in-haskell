@@ -1,0 +1,12 @@
+.stack-work/
+
+*.iml
+
+.idea/
+.vscode/
+dist-newstyle/
+out/
+
+stack.yaml.lock
+.DS_Store
+
