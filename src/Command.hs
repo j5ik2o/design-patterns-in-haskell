@@ -14,6 +14,7 @@ append (MacroCommand l) (MacroCommand r) = MacroCommand $ l ++ r
 
 undo :: Command -> Command
 undo (MacroCommand commands) = MacroCommand (init commands)
+undo c = c
 
 clear :: Command -> Command
 clear _ = MacroCommand []
