@@ -27,14 +27,16 @@ library
   exposed-modules:
       Adaptor
       Command
+      Composite
       Lib
   other-modules:
       Paths_design_patterns_in_haskell
   hs-source-dirs:
       src
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wunused-record-wildcards
   build-depends:
       base >=4.7 && <5
+    , interpolate
   default-language: Haskell2010
 
 executable design-patterns-in-haskell-exe
@@ -43,10 +45,11 @@ executable design-patterns-in-haskell-exe
       Paths_design_patterns_in_haskell
   hs-source-dirs:
       app
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wunused-record-wildcards -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
     , design-patterns-in-haskell
+    , interpolate
   default-language: Haskell2010
 
 test-suite design-patterns-in-haskell-test
@@ -55,12 +58,14 @@ test-suite design-patterns-in-haskell-test
   other-modules:
       AdaptorSpec
       CommandSpec
+      CompositeSpec
       Paths_design_patterns_in_haskell
   hs-source-dirs:
       test
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wunused-record-wildcards -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
     , design-patterns-in-haskell
     , hspec
+    , interpolate
   default-language: Haskell2010
