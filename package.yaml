@@ -57,3 +57,4 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - design-patterns-in-haskell
+    - hspec
