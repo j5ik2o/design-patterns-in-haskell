@@ -7,8 +7,8 @@ data Display = String String | SideBorder Display Char | FullBorder Display
 
 getColumns :: Display -> Int
 getColumns (String s) = length s
-getColumns (SideBorder d c) = 1 + getColumns d + 1
-getColumns (FullBorder d) = 1 + getColumns d + 1
+getColumns (SideBorder display _) = 1 + getColumns display + 1
+getColumns (FullBorder display) = 1 + getColumns display + 1
 
 makeLine :: Char -> Int -> String
 makeLine char count = replicate count char
