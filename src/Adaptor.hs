@@ -1,12 +1,16 @@
+{-# LANGUAGE QuasiQuotes #-}
+
 module Adaptor where
+
+import Data.String.Interpolate
 
 newtype Banner = Banner {value :: String}
 
 showWithParen :: Banner -> IO ()
-showWithParen (Banner v) = putStrLn $ "(" ++ v ++ ")"
+showWithParen (Banner name) = putStrLn [i|(#{name})|]
 
 showWithAster :: Banner -> IO ()
-showWithAster (Banner v) = putStrLn $ "*" ++ v ++ "*"
+showWithAster (Banner name) = putStrLn [i|*#{name}*|]
 
 class Print a where
   printWeak :: a -> IO ()
