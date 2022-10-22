@@ -11,28 +11,28 @@ getColumns (SideBorder d c) = 1 + getColumns d + 1
 getColumns (FullBorder d) = 1 + getColumns d + 1
 
 makeLine :: Char -> Int -> String
-makeLine c n = replicate n c
+makeLine char count = replicate count char
 
 getRows :: Display -> Int
 getRows (String s) = 1
-getRows (SideBorder d c) = getRows d
-getRows (FullBorder d) = 1 + getRows d + 1
+getRows (SideBorder display c) = getRows display
+getRows (FullBorder display) = 1 + getRows display + 1
 
 getRowText :: Display -> Int -> String
-getRowText (String s) row
-  | row == 0 = s
+getRowText (String text) row
+  | row == 0 = text
   | otherwise = error "Invalid row"
-getRowText (SideBorder d c) row = [i|#{bracket}#{message}#{bracket}|]
+getRowText (SideBorder display char) row = [i|#{bracket}#{message}#{bracket}|]
   where
-    bracket = [c]
-    message = getRowText d row
-getRowText (FullBorder d) row
+    bracket = [char]
+    message = getRowText display row
+getRowText (FullBorder display) row
   | row == 0 = [i|-#{message}-|]
-  | row == getRows d + 1 = [i|+#{message}+|]
+  | row == getRows display + 1 = [i|+#{message}+|]
   | otherwise = [i||#{line}||]
   where
-    message = makeLine '-' (getColumns d)
-    line = getRowText d $ row - 1
+    message = makeLine '-' $ getColumns display
+    line = getRowText display $ row - 1
 
 show :: Display -> IO ()
-show d = mapM_ putStrLn $ map (getRowText d) [0..getRows d - 1]
+show display = mapM_ putStrLn $ map (getRowText display) [0..getRows display - 1]
