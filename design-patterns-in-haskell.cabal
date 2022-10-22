@@ -28,6 +28,7 @@ library
       Adaptor
       Command
       Composite
+      Decorator
       Lib
   other-modules:
       Paths_design_patterns_in_haskell
@@ -59,6 +60,7 @@ test-suite design-patterns-in-haskell-test
       AdaptorSpec
       CommandSpec
       CompositeSpec
+      DecoratorSpec
       Paths_design_patterns_in_haskell
   hs-source-dirs:
       test
