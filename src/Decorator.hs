@@ -6,7 +6,7 @@ import Data.String.Interpolate
 data Display = String String | SideBorder Display Char | FullBorder Display
 
 getColumns :: Display -> Int
-getColumns (String s) = length s
+getColumns (String text) = length text
 getColumns (SideBorder display _) = 1 + getColumns display + 1
 getColumns (FullBorder display) = 1 + getColumns display + 1
 
@@ -14,7 +14,7 @@ makeLine :: Char -> Int -> String
 makeLine char count = replicate count char
 
 getRows :: Display -> Int
-getRows (String s) = 1
+getRows (String _) = 1
 getRows (SideBorder display c) = getRows display
 getRows (FullBorder display) = 1 + getRows display + 1
 
