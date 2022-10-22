@@ -1,7 +1,7 @@
 module CompositeSpec where
 
-import Test.Hspec
 import Composite
+import Test.Hspec
 
 spec :: Spec
 spec =
@@ -37,4 +37,3 @@ spec =
 
       printLine rootDir4
       1 `shouldBe` 1
-
