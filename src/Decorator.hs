@@ -1,4 +1,5 @@
 {-# LANGUAGE QuasiQuotes #-}
+
 module Decorator where
 
 import Data.String.Interpolate
@@ -35,4 +36,7 @@ getRowText (FullBorder display) row
     line = getRowText display $ row - 1
 
 show :: Display -> IO ()
-show display = mapM_ putStrLn $ map (getRowText display) [0..getRows display - 1]
+show display = mapM_ putStrLn $ mf display [0 .. max]
+  where
+    mf = map . getRowText
+    max = getRows display - 1

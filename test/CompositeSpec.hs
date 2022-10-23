@@ -7,6 +7,8 @@ spec :: Spec
 spec =
   describe "composite" $ do
     it "printline" $ do
+      let tl = (3.5, 1)
+      let a = fmap (* 2) tl
       let rootDir = ofDir "root"
       let binDir = ofDir "bin"
       let tmpDir = ofDir "tmp"
@@ -36,4 +38,5 @@ spec =
       let rootDir4 = addEntry rootDir3 usrDir4
 
       printLine rootDir4
+      print a
       1 `shouldBe` 1
