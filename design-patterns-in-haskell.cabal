@@ -27,6 +27,7 @@ library
   exposed-modules:
       Adaptor
       Command.Enum
+      Command.TypeClass
       Composite
       Decorator
       Lib
@@ -59,6 +60,7 @@ test-suite design-patterns-in-haskell-test
   other-modules:
       AdaptorSpec
       Command.EnumSpec
+      Command.TypeClassSpec
       CompositeSpec
       DecoratorSpec
       Paths_design_patterns_in_haskell
