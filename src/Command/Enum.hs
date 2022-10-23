@@ -1,4 +1,4 @@
-module Command where
+module Command.Enum where
 
 data Command = EchoCommand String | MacroCommand [Command]
 

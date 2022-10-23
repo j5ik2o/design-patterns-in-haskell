@@ -1,6 +1,6 @@
-module CommandSpec where
+module Command.EnumSpec where
 
-import Command
+import Command.Enum
 import Control.Monad
 import Test.Hspec
 

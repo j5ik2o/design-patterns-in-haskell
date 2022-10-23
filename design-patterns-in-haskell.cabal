@@ -26,7 +26,7 @@ source-repository head
 library
   exposed-modules:
       Adaptor
-      Command
+      Command.Enum
       Composite
       Decorator
       Lib
@@ -58,7 +58,7 @@ test-suite design-patterns-in-haskell-test
   main-is: Spec.hs
   other-modules:
       AdaptorSpec
-      CommandSpec
+      Command.EnumSpec
       CompositeSpec
       DecoratorSpec
       Paths_design_patterns_in_haskell
